@@ -1,0 +1,51 @@
+<po-page-default p-title="Pedidos Liberados">
+    <po-dynamic-form
+    #dynamicForm
+    p-auto-focus="name"
+    [p-fields]="fields"
+    [p-validate]="this.onChangeFields.bind(this)"
+    [p-value]="person"
+  >
+  </po-dynamic-form>
+
+
+      <po-table
+    #tabelaAuto
+      p-container="shadow"
+    [p-height]="400"
+    [p-selectable]="true"
+    [p-sort]="true"
+    [p-striped]="true"
+    [p-columns]="columns"
+    [p-items]="items"
+    [p-max-columns]="6"
+    (p-collapsed)="onCollapseDetail()"
+     (p-selected)="sumTotal($event)"
+     (p-unselected)="decreaseTotal($event)"
+     (p-all-selected)="sumalltotal($event)"
+     (p-all-unselected)="suballtotal()"
+
+      >
+      </po-table>
+
+    <div class="po-row">
+    <po-info
+          class="po-md-2 po-mb-sm-2 po-mb-md-2 po-lb-lg-2"
+          p-label="Total Selecionado"
+          p-value="{{ totalall | currency: 'R$' }}"
+      ></po-info>
+    <po-info
+          class="po-md-2 po-mb-sm-2 po-mb-md-2 po-lb-lg-2"
+          p-label="Total Pendente"
+          p-value="{{ total | currency: 'R$' }}"
+      ></po-info>
+  </div>
+
+    <div class="po-row">
+      <po-button
+      class="po-md-2"
+      p-label="GERA EXCEL"
+      (p-click)="exportToExcel()"> </po-button>
+    </div>
+
+  </po-page-default>

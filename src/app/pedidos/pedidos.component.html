@@ -1,0 +1,345 @@
+<po-page-default>
+
+  <div class="containerGeral" *ngIf="container">
+
+<div class="main-container" >
+  <!-- Cabeçalho com título e imagem à esquerda -->
+  <div class="header">
+    <div class="title-container">
+      <div class="title-left">MEUS PEDIDOS</div>
+    </div>
+  </div>
+
+  <!-- Quadro com botões e campo de entrada à direita -->
+  <div class="content">
+    <div class="container">
+      <div class="message-actions">
+        <div class="action-item">
+          <po-button p-label="Incluir Pedido" (p-click)="AddPedidos()"></po-button>
+        </div>
+        <div class="action-item">
+          <po-input
+            (p-blur)="ngOnInit()"
+            p-label="Pesquisar"
+            [(ngModel)]="searchTerm"
+            (ngModelChange)="filterItems()">
+          </po-input>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+
+<div class="TelaGeral" *ngIf="TelaexibirGeral">
+
+  <div class="po-row">''</div>
+  <div class="po-row">''</div>
+  <div class="po-row">''</div>
+
+  <!-- Botões para alternar entre as classes -->
+  <div class="po-row">
+    <po-button class="po-md-3" p-label="Geral" (p-click)="mostrarGeral()"> </po-button>
+    <po-button class="po-md-3" p-label="Faturas" (p-click)="mostrarFaturas()"> </po-button>
+    <po-button class="po-md-3" p-label="Impostos" (p-click)="mostrarImpostos()"> </po-button>
+    <po-button class="po-md-3" p-label="Transporte" (p-click)="mostrarTransporte()"> </po-button>
+  </div>
+
+  <div class="po-row">''</div>
+<div class="po-row">''</div>
+<div class="po-row">''</div>
+
+<!-- Div da classe 'Geral', exibida quando a variável `exibirGeral` for verdadeira -->
+<div class="Geral" *ngIf="exibirGeral">
+  <po-dynamic-form
+    #dynamicForm
+    (p-form)="getForm($event)"
+    p-auto-focus="name"
+    [p-fields]="fields"
+    [p-validate]="this.onChangeFields.bind(this)"
+    [p-value]="person"
+  ></po-dynamic-form>
+
+</div>
+
+<div class="po-row">''</div>
+  <div class="po-row">''</div>
+  <div class="po-row">''</div>
+
+<!-- Div da classe 'Geral', exibida quando a variável `exibirGeral` for verdadeira -->
+<div class="Faturas" *ngIf="exibirFaturas">
+  <po-dynamic-form
+    #dynamicForm
+    p-auto-focus="name"
+    [p-fields]="fieldsFaturas"
+    [p-value]="personfaturas"
+  ></po-dynamic-form>
+</div>
+
+<!-- Div da classe 'Geral', exibida quando a variável `exibirGeral` for verdadeira -->
+<div class="Impostos" *ngIf="exibirImpostos">
+  <po-dynamic-form
+    #dynamicForm
+    p-auto-focus="name"
+    [p-fields]="fieldsImpostos"
+    [p-value]="person"
+  ></po-dynamic-form>
+</div>
+
+<!-- Div da classe 'Geral', exibida quando a variável `exibirGeral` for verdadeira -->
+<div class="Transporte" *ngIf="exibirTransporte">
+  <po-dynamic-form
+    #dynamicForm
+    p-auto-focus="name"
+    [p-fields]="fieldsTransporte"
+    [p-value]="persontransporte"
+    [p-validate]="this.Changetransp.bind(this)"
+  ></po-dynamic-form>
+</div>
+
+
+<div class="po-row">''</div>
+  <div class="po-row">''</div>
+  <div class="po-row">''</div>
+
+  <div class="geral-container">
+    <!-- Container "Cadastros" separado -->
+    <div class="CadastroItens" >
+      <po-table
+        #tabelaAuto
+        [p-height]="200"
+        [p-columns]="columnsmanual"
+        [p-items]="datamanual"
+        [p-actions]="actionsitens"
+        (p-delete-items)="deleteItems($event)"
+       >
+      </po-table>
+    </div>
+  </div>
+
+<div class="po-row">''</div>
+  <div class="po-row">''</div>
+  <div class="po-row">''</div>
+
+
+<div class="po-row">
+  <po-button class="po-md-2" p-label="Salvar" (p-click)="SalvarPedido()"> </po-button>
+  <po-button class="po-md-2" p-label="+ Itens" (p-click)="addItem3()"> </po-button>
+  <po-button class="po-md-2" p-label="Sair" (p-click)="cancelarpv()" > </po-button>
+
+</div>
+
+</div>
+
+
+<div class="containerGeral" *ngIf="container">
+
+<div class="geral-container" >
+  <!-- Container "Cadastros" separado -->
+  <div class="Cadastros" >
+    <po-table
+      #tabelaAuto
+      p-container="shadow"
+      [p-height]="400"
+      [p-sort]="true"
+      [p-striped]="true"
+      [p-columns]="columns"
+      [p-items]="filteredItems"
+      [p-actions]="actions"
+     >
+    </po-table>
+  </div>
+</div>
+
+<div class="po-row" class="po-md-12">
+  <div class="po-row" class="po-md-12">
+    <div class="po-row" class="po-md-12"></div>
+  </div>
+</div>
+
+<div class="po-row" class="po-md-12"></div>
+
+	<po-info
+		class="po-md-6 po-mb-sm-2 po-mb-md-2 po-lb-lg-2"
+		p-label="Total Value"
+		p-value="{{ total | currency: 'R$' }}"
+	></po-info>
+</div>
+  <po-modal #userDetailModal p-title="Incluir Produtos" >
+
+
+    <div class="Produtos" >
+      <po-input
+        (p-blur)="buscaproduto()"
+        p-label="Pesquisar"
+        [(ngModel)]="searchTermp"
+        (ngModelChange)="filterProduto()">
+      </po-input>
+
+      <po-table
+        #tabelaAuto
+        p-container="shadow"
+        [p-height]="400"
+        [p-sort]="true"
+        [p-striped]="true"
+        [p-columns]="columns1"
+        [p-selectable]="true"
+        (p-unselected)="removetemlista($event)"
+        (p-selected)="additemlista($event)"
+        [p-items]="filteredprodutos"
+        [p-single-select]="true"
+       >
+      </po-table>
+    </div>
+
+    <po-input   (p-blur)="unitqtd()" [(ngModel)]="iQtd" class="po-md-4" name="Qtd" p-label="Quantidade"> </po-input>
+    <po-input   (p-blur)="qtduni()" [(ngModel)]="iVlUnitario" class="po-md-4" name="VlUnitario" p-label="Valor Unitario"> </po-input>
+    <po-input  p-disabled="true" [(ngModel)]="valorFormatado" class="po-md-4" name="Vltotal" p-label="Valor Total"></po-input>
+    <po-input   p-mask="99/99/9999"    [(ngModel)]="iDtentrega" class="po-md-4" name="Dtentrega" p-label="Entrega"> </po-input>
+    <po-combo
+    class="po-md-4"
+    name="Tipo de Saida"
+    p-label="Tipo de Saida"
+    [p-options]="accompanimentOptions"
+    [ngModel]="iTesitem"
+    (p-change)="eventocfop()"
+   (ngModelChange)="iTesitem = $event">
+  >
+  </po-combo>
+
+  <po-combo
+  class="po-md-4"
+  name="icfop"
+  p-label="Cfop"
+  [p-options]="CfopOptions"
+  [ngModel]="cfopitem"
+  (ngModelChange)="cfopitem = $event">
+>
+</po-combo>
+
+   <div class="po-row" class="po-md-12">
+   <po-input p-disabled="true" [(ngModel)]="iItem" class="po-md-1" name="iItem" p-label="Item"> </po-input>
+   <po-input p-disabled="true" [(ngModel)]="prditems" class="po-md-1" name="prditems" p-label="Produto"> </po-input>
+   <po-input p-disabled="true" [(ngModel)]="umitems" class="po-md-1" name="umitems" p-label="Um"> </po-input>
+   <po-input p-disabled="true" [(ngModel)]="descitems" name="iDesc" p-label="Descrição"> </po-input>
+ </div>
+   <div class="po-row">
+     <po-textarea class="po-md-12" name="orderDetail" [(ngModel)]="orderDetail" p-label="Observações:" (p-rows)=8>
+     </po-textarea>
+   </div>
+
+
+
+  <po-modal-footer [p-disabled-align]="false">
+    <po-button p-danger="true" p-label="Abandonar" (p-click)="close1()"> </po-button>
+    <po-button p-label="+ Itens" (p-click)="restore()"> </po-button>
+    <po-button p-kind="primary" p-label="Confirma Item" (p-click)="confirm1()"> </po-button>
+  </po-modal-footer>
+
+  </po-modal>
+
+
+
+
+  <po-modal   [(ngModel)]="searchTermp" #itemModal p-title="Alterar Item " >
+
+    <div class="Produto" >
+
+     </div>
+
+     <po-input   (p-blur)="unitqtd()" [(ngModel)]="iQtd" class="po-md-4" name="Qtd" p-label="Quantidade"> </po-input>
+     <po-input   (p-blur)="qtduni()" [(ngModel)]="iVlUnitario" class="po-md-4" name="VlUnitario" p-label="Valor Unitario"> </po-input>
+     <po-input  p-disabled="true" [(ngModel)]="valorFormatado" class="po-md-4" name="Vltotal" p-label="Valor Total"></po-input>
+     <po-input   p-mask="99/99/9999"    [(ngModel)]="iDtentrega" class="po-md-4" name="Dtentrega" p-label="Entrega"> </po-input>
+    <po-combo
+        class="po-md-4"
+        name="Tipo de Saida"
+        p-label="Tipo de Saida"
+        [p-options]="accompanimentOptions"
+        [ngModel]="iTesitem"
+        (p-change)="eventocfop()"
+       (ngModelChange)="iTesitem = $event">
+      >
+      </po-combo>
+
+      <po-combo
+      class="po-md-4"
+      name="icfop"
+      p-label="Cfop"
+      [p-options]="CfopOptions"
+      [ngModel]="cfopitem"
+      (ngModelChange)="cfopitem = $event">
+    >
+    </po-combo>
+
+    <div class="po-row" class="po-md-12">
+    <po-input p-disabled="true" [(ngModel)]="iItem" class="po-md-1" name="iItem" p-label="Item"> </po-input>
+    <po-input p-disabled="true" [(ngModel)]="prditems" class="po-md-1" name="prditems" p-label="Produto"> </po-input>
+    <po-input p-disabled="true" [(ngModel)]="umitems" class="po-md-1" name="umitems" p-label="Um"> </po-input>
+    <po-input p-disabled="true" [(ngModel)]="descitems" name="iDesc" p-label="Descrição"> </po-input>
+  </div>
+    <div class="po-row">
+      <po-textarea class="po-md-12" name="orderDetail" [(ngModel)]="orderDetail" p-label="Observações:" (p-rows)=8>
+      </po-textarea>
+    </div>
+
+
+  <po-modal-footer [p-disabled-align]="false">
+    <po-button p-danger="true" p-label="Abandonar" (p-click)="close4()"> </po-button>
+    <po-button p-kind="primary" p-label="Confirma Item" (p-click)="confirm4()"> </po-button>
+  </po-modal-footer>
+
+  </po-modal>
+
+
+  <po-modal #AddClienteModal p-title="Dados do Cliente" [p-primary-action]="confirm2" [p-secondary-action]="close2">
+    <div class="po-lg-12 po-text-center po-font-subtitle message-info">
+      "Deseja Incluir Este Cliente?"
+    </div>
+    <div class="po-lg-12 po-text-center po-font-subtitle message-warning">
+      "CNPJ: " {{ clicnpjnovo }} " Não Encontrado "
+    </div>
+  </po-modal>
+
+
+
+  <po-modal #Addtransporte p-title="Transportadoras" [p-primary-action]="confirm3" [p-secondary-action]="close3">
+    <div class="po-lg-12 ">
+
+
+        <po-search
+          class="po-md-12"
+          name="Po Search"
+          [p-items]="filteredtrans"
+          [p-filter-keys]="filterKeys"
+          (p-filtered-items-change)="filtered($event)"
+        ></po-search>
+
+
+<po-table
+#transpTable
+p-container="shadow"
+[p-height]="400"
+[p-sort]="true"
+[p-striped]="true"
+[p-columns]="columnstransp"
+[p-selectable]="true"
+[p-items]="filteredtrans"
+(p-selected)="transselect($event)"
+>
+</po-table>
+
+
+
+
+
+    </div>
+  </po-modal>
+
+
+
+
+
+
+</po-page-default>

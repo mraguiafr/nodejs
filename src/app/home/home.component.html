@@ -1,0 +1,70 @@
+<po-page-default>
+
+
+    <po-radio-group
+      class="po-lg-4 po-pl-2"
+      name="theme"
+      [(ngModel)]="theme"
+      [p-options]="themeOptions"
+      (p-change)="changeTheme($event)"
+    >
+    </po-radio-group>
+
+
+  <div class="main-container">
+    <!-- Cabeçalho com título e imagem à esquerda -->
+    <div class="header">
+      <div class="title-container">
+        <div class="title-left">Dashboard
+          <H1>VISÃO ESTRATÉGICA</H1>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="po-md-12">
+      <po-chart
+        class="po-lg-6 po-mt-2"
+        p-title="Top 5 Clientes (No Ano)"
+        [p-series]="vendascliente"
+        (p-series-click)="searchMore($event)"
+      >
+      </po-chart>
+
+      <po-chart
+        class="po-lg-6 po-mt-2"
+        p-title="Top 5 Vendedores (Mes Anterior)"
+        [p-series]="coffeeConsumption"
+        (p-series-click)="showMeTheDates($event)"
+      >
+      </po-chart>
+    </div>
+  </div>
+
+    <!-- <div class="po-row">
+      <po-chart
+        class="po-md-12 po-mt-2"
+        p-title="META VENDAS MES A MES - (R$ )"
+        [p-options]="options"
+        [p-categories]="categories"
+        [p-series]="participationByCountryInWorldExports"
+        [p-type]="participationByCountryInWorldExportsType"
+      >
+      </po-chart>
+      <div class="po-md-6 po-mt-2">
+          <div class="po-font-title po-text-center po-pt-5"></div>
+          <div class="po-text-center"></div>
+
+          <div class="po-font-title po-text-center po-pt-5"></div>
+          <div class="po-text-center"></div>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="canvas-container">
+    <canvas id="lineChart"></canvas>
+  </div>
+ 
+
+
+</po-page-default>
