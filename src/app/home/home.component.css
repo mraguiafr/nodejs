@@ -1,0 +1,47 @@
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.progress-bar {
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  width: 100%;
+  height: 25px;
+}
+
+.progress {
+  background-color: #76c7c0;
+  height: 100%;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+.canvas-container {
+  display: block;
+  width: 100%; /* Ocupa metade da largura da tela */
+  height: auto; /* Mantém a proporção do gráfico */
+  margin: 0 auto; /* Centraliza o gráfico na tela */
+}
+

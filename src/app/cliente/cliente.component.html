@@ -1,0 +1,206 @@
+<po-page-default>
+
+
+  <div class="main-container">
+    <!-- Cabeçalho com título e imagem à esquerda -->
+    <div class="header">
+      <div class="title-container">
+        <div class="title-left">MEUS CADASTROS</div>
+      </div>
+    </div>
+
+    <!-- Quadro com botões e campo de entrada à direita -->
+    <div class="containerGeral" *ngIf="containerGeralA">
+    <div class="content">
+      <div class="container">
+        <div class="message-actions">
+          <div class="action-item">
+            <po-button p-label="Incluir Cadastro" (p-click)="AddClienteModal.open()"></po-button>
+          </div>
+          <div class="action-item">
+            <po-input
+              (p-blur)="ngOnInit()"
+              p-label="Pesquisar"
+              [(ngModel)]="searchTerm"
+              (ngModelChange)="filterItems()">
+            </po-input>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="containerGeral" *ngIf="containerGeralB">
+    <div class="content">
+      <div class="container">
+        <div class="message-actions">
+          <div class="action-item">
+            <po-info p-label='EM ALTERAÇÃO'></po-info>
+          </div>
+          <div class="action-item">
+            <po-input
+               p-label=''
+                 p-readonly="true"
+              (ngModelChange)="filterItems()">
+            </po-input>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  </div>
+
+  <div class="geral-container">
+  <!-- Alterações - Mantidos na mesma lógica do cadastro -->
+  <div class="alteracao" *ngIf="exibiralteracoes">
+    <!-- Botões para alternar entre as classes -->
+    <div class="po-row">
+      <po-button class="po-md-3" p-label="Geral" (p-click)="mostrarGeral()"> </po-button>
+      <po-button class="po-md-3" p-label="Enderecos" (p-click)="mostrarEnderecos()"> </po-button>
+      <po-button class="po-md-3" p-label="Vendas" (p-click)="mostrarVendas()"> </po-button>
+      <po-button class="po-md-3" p-label="Análise" (p-click)="mostrarAnalise()"> </po-button>
+      <po-button class="po-md-3" p-label="Histórico" (p-click)="mostrarHistoria()"> </po-button>
+      <po-button class="po-md-3" p-label="Atualizar Online" (p-click)="mostrarSintegra()"> </po-button>
+    </div>
+  </div>
+
+
+  <div class="geral-container">
+  <!-- Container "Cadastros" separado -->
+  <div class="Cadastros" *ngIf="exibirCadastros">
+    <po-table
+      #tabelaAuto
+      p-container="shadow"
+      [p-height]="400"
+      [p-sort]="true"
+      [p-striped]="true"
+      [p-columns]="columns"
+      [p-items]="filteredItems"
+      [p-actions]="actions"
+      (p-selected)="sumTotal($event)">
+    </po-table>
+  </div>
+
+
+    <!-- Seções dinâmicas de acordo com o ngIf -->
+    <div class="Geral" *ngIf="exibirGeral">
+      <po-dynamic-form
+        #dynamicForm
+        p-auto-focus="name"
+        [p-fields]="fieldsGeral"
+        [p-validate-fields]="validateFieldsgeral"
+        [p-value]="person"
+        [p-validate]="this.onChangeFields.bind(this)">
+      </po-dynamic-form>
+    </div>
+
+    <div class="Enderecos" *ngIf="exibirEnderecos">
+      <po-dynamic-form
+        #dynamicForm
+        p-auto-focus="name"
+        [p-fields]="fieldsEndereco"
+        [p-value]="personcep"
+        [p-validate-fields]="validateFieldsend"
+        [p-validate]="this.Changecep.bind(this)">
+      </po-dynamic-form>
+    </div>
+
+    <div class="Analise" *ngIf="exibirAnalise">
+      <po-dynamic-form
+        #dynamicForm
+        p-auto-focus="name"
+        [p-fields]="FieldsAnalise"
+        [p-validate-fields]="validateFieldsana"
+        [p-value]="person"
+        [p-validate]="this.onChangeFields.bind(this)">
+      </po-dynamic-form>
+    </div>
+
+    <div class="Historia" *ngIf="exibirHistoria">
+      <po-dynamic-form
+        #dynamicForm
+        p-auto-focus="name"
+        [p-fields]="FieldsHistoria"
+        [p-validate-fields]="validateFieldshis"
+        [p-value]="person"
+        [p-validate]="this.onChangeFields.bind(this)">
+      </po-dynamic-form>
+    </div>
+
+    <div class="Vendas" *ngIf="exibirVendas">
+      <po-dynamic-form
+        #dynamicForm
+        p-auto-focus="name"
+        [p-fields]="FieldsVendas"
+        [p-validate-fields]="validateFieldsven"
+        [p-value]="person"
+        [p-validate]="this.onChangeFields.bind(this)">
+      </po-dynamic-form>
+    </div>
+
+  </div>
+
+  </div>
+
+
+  <div class="geral-container">
+
+  <div class="Btnrodape" *ngIf="exibebtnrodape">
+     <!-- Botões de ação na parte inferior -->
+     <po-button
+     class="po-md-3"
+     p-label="Salvar"
+     (p-click)="salvar()">
+   </po-button>
+   <po-button
+     class="po-md-3"
+     p-label="Sair"
+     (p-click)="voltarcadastro()">
+   </po-button>
+
+  </div>
+</div>
+
+
+  <!-- Modal para incluir cliente -->
+  <po-modal p-size="auto" p-title="Detalhes do Cliente" [p-primary-action]="confirm" [p-secondary-action]="close">
+    <po-dynamic-view
+      [p-fields]="detailFields"
+      [p-value]="person">
+    </po-dynamic-view>
+  </po-modal>
+
+  <po-modal #userDetailModal p-title="Dados do Cliente" [p-primary-action]="confirm2" [p-secondary-action]="close1">
+    <div class="po-lg-12 po-text-center po-font-subtitle message-info">
+      "Deseja Incluir Este Cliente?"
+    </div>
+    <div class="po-lg-12 po-text-center po-font-subtitle message-warning">
+      "CNPJ: " {{ content }} " Não Encontrado "
+    </div>
+  </po-modal>
+
+  <po-modal p-size="auto" #AddClienteModal p-title="Dados do Cadastro" [p-primary-action]="confirm1" >
+    <po-input p-label="Incluir Dados" [(ngModel)]="searchTerm"></po-input>
+    
+    <po-combo
+     name="estadoaddcliente"
+    p-label="Nf Para Estado "
+    [p-options]="estadosOptions"
+    [ngModel]="eventestado"
+   (ngModelChange)="eventestado = $event">
+  >
+  </po-combo>
+
+    <po-combo  
+    [ngModel]="eventcnpj"
+    (ngModelChange)="eventcnpj = $event"
+    name="addcliente" p-label="Tipo de Cadastro" [p-options]="[{ value: 'CNPJ' }, { value: 'CPF' }]"></po-combo>
+   
+  </po-modal>
+
+</po-page-default>

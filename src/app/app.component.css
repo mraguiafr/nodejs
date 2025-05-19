@@ -1,0 +1,15 @@
+.message-info {
+  color: #4a90e2; /* Azul claro */
+  background-color: #e3f2fd; /* Fundo azul suave */
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.message-warning {
+  color: #d9534f; /* Vermelho suave */
+  background-color: #f8d7da; /* Fundo vermelho claro */
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0;
+}

@@ -1,0 +1,88 @@
+
+<po-page-default >
+  <div class="po-row">
+
+  <div class="title-left">Contas a Receber</div>
+</div>
+
+  <po-widget class="po-lg-6" >
+  <po-container >
+
+    <po-input
+    class="po-md-2"
+    (p-blur)="buscaareceber()"
+    p-label="Pesquisar"
+    [(ngModel)]="searchctr">
+  </po-input>
+
+    <div class="po-row">
+      <po-button
+        class="po-md-2"
+        p-icon="fa fa-check-circle"
+        p-label="Atualizar"
+        (p-click)="Atualizatabela()"
+
+      ></po-button>
+
+
+    <div class="po-row">
+        <h2>Dado Retornado</h2>
+        <p>Nome do Cliente: {{ receivedData || nomecliente || "Nehum Dado Recebido"}}</p>
+        <p>Cnpj do Cliente: {{ receivedData1}}</p>
+
+    </div>
+  </div>
+
+
+  </po-container>
+</po-widget>
+
+   <po-table
+  #tabelaAuto
+  p-container="shadow"
+  [p-height]="400"
+  [p-sort]="true"
+  [p-striped]="true"
+  [p-columns]="columns"
+  [p-items]="items"
+  [p-actions]="actions"
+  (p-selected)="sumTotal($event)"
+  >
+</po-table>
+
+
+
+
+  <!-- Modal para incluir cliente -->
+  <po-modal p-size="auto" p-title="Detalhes do Cliente" [p-secondary-action]="close">
+    <po-dynamic-view
+      [p-fields]="detailFields"
+      [p-value]="person">
+    </po-dynamic-view>
+  </po-modal>
+
+<!-- <div class="po-row">
+<po-info
+      class="po-md-2 po-mb-sm-2 po-mb-md-2 po-lb-lg-2"
+      p-label="Total Selecionado"
+      p-value="{{ totalall | currency: 'R$' }}"
+  ></po-info>
+<po-info
+      class="po-md-2 po-mb-sm-2 po-mb-md-2 po-lb-lg-2"
+      p-label="Total Pendente"
+      p-value="{{ total | currency: 'R$' }}"
+  ></po-info>
+</div>
+
+<div class="po-row">
+  <po-button
+  class="po-md-2"
+  p-label="GERA EXCEL"
+  > </po-button>
+
+  <po-checkbox name="vencidos" p-label="Vencidos"> </po-checkbox>
+  <po-checkbox name="avencer" p-label="A Vencer"> </po-checkbox>
+  <po-checkbox name="parcial" p-label="Parcial"> </po-checkbox>
+</div> -->
+
+</po-page-default>

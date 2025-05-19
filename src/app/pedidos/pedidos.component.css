@@ -1,0 +1,103 @@
+.message-info {
+  color: #4a90e2; /* Azul claro */
+  background-color: #e3f2fd; /* Fundo azul suave */
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.message-warning {
+  color: #d9534f; /* Vermelho suave */
+  background-color: #f8d7da; /* Fundo vermelho claro */
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column; /* Organiza os itens em uma coluna */
+  padding: 20px; /* Espaçamento ao redor do container */
+}
+
+.header {
+  margin-bottom: 15px; /* Espaçamento abaixo do cabeçalho */
+}
+
+.title-container {
+  display: flex;
+  align-items: center; /* Alinha verticalmente os itens ao centro */
+  gap: 10px; /* Espaçamento entre a imagem e o título */
+}
+
+.logo {
+  width: 40px; /* Define a largura da imagem */
+  height: auto; /* Mantém a proporção da imagem */
+}
+
+.title-left {
+  font-size: 32px; /* Tamanho da fonte maior para destaque */
+  font-weight: bold; /* Texto em negrito */
+  color: #333; /* Cor do texto escura e amigável para web */
+}
+
+.content {
+  display: flex;
+  justify-content: space-between; /* Espaça o conteúdo entre a esquerda e a direita */
+  align-items: flex-start; /* Alinha verticalmente ao início */
+}
+
+.container {
+  display: flex;
+  justify-content: flex-end; /* Alinha os elementos ao canto direito */
+  align-items: center; /* Mantém os itens verticalmente alinhados ao centro */
+}
+
+.message-actions {
+  display: flex;
+  flex-direction: column; /* Organiza os itens em uma coluna */
+  align-items: flex-end; /* Alinha os itens ao canto direito */
+  gap: 15px; /* Adiciona espaço entre os elementos */
+  background-color: #f7f9fc; /* Fundo claro e suave */
+  border: 1px solid #e0e0e0; /* Borda cinza suave */
+  border-radius: 8px; /* Bordas arredondadas */
+  padding: 15px; /* Espaçamento interno para um visual mais espaçado */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve para destaque */
+}
+
+.action-item {
+  margin-bottom: 10px; /* Espaçamento entre os itens */
+}
+
+po-button, po-input {
+  width: 200px; /* Largura padrão para os botões e entradas */
+}
+
+
+.geral-container {
+  padding: 20px; /* Espaçamento ao redor do container */
+}
+
+.badge {
+  padding: 3px 10px;
+  border-radius: 3px;
+  color: #fff;
+  width: 100px;
+  text-align: center;
+  box-shadow:
+    0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-size: 10px;
+}
+
+.badge.component {
+  background-color: #82b1ff;
+}
+
+.badge.service {
+  background-color: #b39ddb;
+}
+
+.badge.template {
+  background-color: #ffb515;
+}
