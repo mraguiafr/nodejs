@@ -1,104 +1,104 @@
 {
-  "hash": "5454d2ce",
-  "configHash": "4329c5d3",
-  "lockfileHash": "8ea8d7a0",
-  "browserHash": "5da83230",
+  "hash": "a9ccf762",
+  "configHash": "2176cac4",
+  "lockfileHash": "4129e62d",
+  "browserHash": "3f9bfa8f",
   "optimized": {
     "@angular/common": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-      "fileHash": "8986c7e3",
+      "fileHash": "3fbe5ffb",
       "needsInterop": false
     },
     "@angular/common/http": {
       "src": "../../../../../node_modules/@angular/common/fesm2022/http.mjs",
       "file": "@angular_common_http.js",
-      "fileHash": "c0acea7e",
+      "fileHash": "82a0932c",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "b3c302c4",
+      "fileHash": "5e476a67",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-      "fileHash": "a37350c0",
+      "fileHash": "ad8ab53b",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "3a70f4f6",
+      "fileHash": "51c94419",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "b40863b8",
+      "fileHash": "8aefcb5f",
       "needsInterop": false
     },
     "@po-ui/ng-components": {
       "src": "../../../../../node_modules/@po-ui/ng-components/fesm2022/po-ui-ng-components.mjs",
       "file": "@po-ui_ng-components.js",
-      "fileHash": "2e90c91f",
+      "fileHash": "06e82b2c",
       "needsInterop": false
     },
     "@po-ui/ng-templates": {
       "src": "../../../../../node_modules/@po-ui/ng-templates/fesm2022/po-ui-ng-templates.mjs",
       "file": "@po-ui_ng-templates.js",
-      "fileHash": "0e022d26",
+      "fileHash": "83cfc5e9",
       "needsInterop": false
     },
     "chart.js": {
       "src": "../../../../../node_modules/chart.js/dist/chart.js",
       "file": "chart__js.js",
-      "fileHash": "0bf0fc77",
+      "fileHash": "c5088a06",
       "needsInterop": false
     },
     "exceljs": {
       "src": "../../../../../node_modules/exceljs/dist/exceljs.min.js",
       "file": "exceljs.js",
-      "fileHash": "464670ac",
+      "fileHash": "c08bff68",
       "needsInterop": true
+    },
+    "fast-xml-parser": {
+      "src": "../../../../../node_modules/fast-xml-parser/src/fxp.js",
+      "file": "fast-xml-parser.js",
+      "fileHash": "de672fff",
+      "needsInterop": false
     },
     "moment": {
       "src": "../../../../../node_modules/moment/moment.js",
       "file": "moment.js",
-      "fileHash": "6474655b",
+      "fileHash": "d61be8cb",
       "needsInterop": true
     },
     "pdfmake/build/pdfmake": {
       "src": "../../../../../node_modules/pdfmake/build/pdfmake.js",
       "file": "pdfmake_build_pdfmake.js",
-      "fileHash": "0ad9212b",
+      "fileHash": "2aa37c46",
       "needsInterop": true
     },
     "pdfmake/build/vfs_fonts": {
       "src": "../../../../../node_modules/pdfmake/build/vfs_fonts.js",
       "file": "pdfmake_build_vfs_fonts.js",
-      "fileHash": "1bf508d5",
+      "fileHash": "420967c4",
       "needsInterop": true
     },
     "rxjs": {
       "src": "../../../../../node_modules/rxjs/dist/esm5/index.js",
       "file": "rxjs.js",
-      "fileHash": "d39b5235",
+      "fileHash": "ef3b408c",
       "needsInterop": false
     },
     "rxjs/operators": {
       "src": "../../../../../node_modules/rxjs/dist/esm5/operators/index.js",
       "file": "rxjs_operators.js",
-      "fileHash": "633006ba",
+      "fileHash": "cfb841df",
       "needsInterop": false
-    },
-    "xml2js": {
-      "src": "../../../../../node_modules/xml2js/lib/xml2js.js",
-      "file": "xml2js.js",
-      "fileHash": "d5668149",
-      "needsInterop": true
     }
   },
   "chunks": {
